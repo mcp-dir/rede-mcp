@@ -1,0 +1,34 @@
+# Smithery configuration for Rede
+# Schema: https://smithery.ai/docs/build/project-config
+# Remote HTTP MCP — server hosted at https://api.mcp.ai/p_rede
+
+name: rede-mcp
+displayName: "Rede"
+description: >
+  Vendas, recebíveis e extrato da sua conta na Rede (maquininha) por captura de sessão, com a sua autorização. Você informa o e-mail e a senha do Portal Rede e a plataforma entra na sua conta para ler os seus próprios dados, na mesma área que você usa no portal. Somente leitura: vendas e transações por período, agenda de recebíveis e extrato financeiro. Combina com o Banco MCP para conciliar maquininha e banco.
+
+version: 0.1.0
+license: MIT
+homepage: https://github.com/mcp-dir/rede-mcp
+repository: https://github.com/mcp-dir/rede-mcp
+
+tags:
+  - rede
+  - brazil
+  - payments
+  - vertical
+  - read-only
+
+# Remote HTTP MCP — sem startCommand local (servidor já hospedado)
+startCommand:
+  type: http
+  url: https://api.mcp.ai/p_rede
+
+auth:
+  type: oauth2
+  resourceMetadataUrl: https://api.mcp.ai/p_rede/.well-known/oauth-protected-resource
+  fallback:
+    type: agent-auth
+    description: >
+      Para clientes sem OAuth 2.1. O agente expõe uma tool authenticate(token).
+      Usuário gera o JWT em https://app.mcp.ai/agent-auth e cola no chat.

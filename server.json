@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.mcp-dir/rede-mcp",
+  "title": "Rede",
+  "description": "Sales, receivables and statements for your Rede (card machine) account via session capture, with you",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/mcp-dir/rede-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.mcp.ai/p_rede"
+    }
+  ]
+}
